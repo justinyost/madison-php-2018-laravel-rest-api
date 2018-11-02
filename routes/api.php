@@ -16,3 +16,11 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::prefix('v1')->namespace('Api')->group(function () {
+    Route::apiResource('polls', 'PollsController');
+});
+
+Route::prefix('v2')->namespace('Api2')->group(function () {
+    Route::apiResource('polls', 'PollsController');
+});
